@@ -24,6 +24,9 @@ namespace Baibaomen.SsoServer
 
             switch (rawUrl.LocalPath.ToLower())
             {
+                case "/":
+                    context.Response.Redirect("login.html");
+                    break;
                 case "/login":
                     HandleLogin(context);
                     break;
@@ -63,7 +66,12 @@ namespace Baibaomen.SsoServer
             else
             {
                 //todo:要检查账号所在域名是否正确。
-                var accountStr = context.User?.Identity?.Name.Split('\\')[1].ToLower();
+                string accountStr = null;
+                if (context.User != null && context.User.Identity != null)
+                {
+                    accountStr = context.User.Identity.Name.Split('\\')[1].ToLower();
+                }
+
                 if (!string.IsNullOrEmpty(accountStr))
                 {
                     theAccount = SampleDB.FindAccount(accountStr);
@@ -97,8 +105,13 @@ namespace Baibaomen.SsoServer
         /// <param name="context"></param>
         public void HandleSso(HttpContext context)
         {
-            var token = context.Request.Cookies["baibaomensso"]?.Value;
-            
+            string token = null;
+
+            if (context.Request.Cookies["baibaomensso"] != null)
+            {
+                token = context.Request.Cookies["baibaomensso"].Value;
+            }
+
             if (!string.IsNullOrEmpty(token) && Util.FindAccountForToken(token) != null)//28 如果已经登录了，跳转到returnurl，并带上token。
             {
                 //29 跳转到returnurl，并带上token参数。
@@ -145,7 +158,7 @@ namespace Baibaomen.SsoServer
 
         public string MakeReturnUrl(string returnUrlQuery, string token) {
             var decoded = HttpUtility.UrlDecode(returnUrlQuery);
-            var toReturn = decoded.Contains('?') ? $"{decoded}&baibaomensso={token}" : $"{decoded}?baibaomensso={token}";
+            var toReturn = decoded.Contains('?') ? string.Format("{0}&baibaomensso={1}",decoded,token) : string.Format("{0}?baibaomensso={1}",decoded,token);
             return toReturn;
         }
     }

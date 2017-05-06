@@ -33,7 +33,7 @@ public static class SampleDB
     }
 
     public static UserInfo FindAccount(string account, string pwdHash) {
-        var matches = DB.Select($"Account='{account}' and PwdHash='{pwdHash}'");
+        var matches = DB.Select(string.Format("Account='{0}' and PwdHash='{1}'",account,pwdHash));
         if (matches == null || matches.Length == 0) {
             return null;
         }
@@ -48,7 +48,7 @@ public static class SampleDB
     /// <returns></returns>
     public static UserInfo FindAccount(string account)
     {
-        var matches = DB.Select($"Account='{account}'");
+        var matches = DB.Select(string.Format("Account='{0}'",account));
         if (matches == null || matches.Length == 0)
         {
             return null;

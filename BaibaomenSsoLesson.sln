@@ -68,6 +68,11 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "http://php-client.cn", "htt
 		SlnRelativePath = "Lesson1\php-client.cn\"
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "运行教程", "运行教程", "{4B4C7862-54CC-4719-8FCD-1FACDA4CB9ED}"
+	ProjectSection(SolutionItems) = preProject
+		运行教程.html = 运行教程.html
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
