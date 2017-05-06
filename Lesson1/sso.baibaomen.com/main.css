@@ -1,0 +1,81 @@
+﻿h1, div {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+iframe {
+    visibility: hidden;
+}
+
+h1 {
+    text-align: center;
+    padding: 3rem;
+    font-size: 3rem;
+}
+
+.login {
+    position: relative;
+    width: 40rem;
+    height:19rem;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    background-color: rgba(121, 85, 72, 0.03);
+    border-radius: 7px;
+    box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    padding: 2rem;
+}
+
+    .login .input {
+        margin: 33px 0;
+    }
+
+        .login .input input {
+            font-size: 1.5rem;
+            padding: .2rem .5rem;
+        }
+
+    .login button {
+        font-size: 1.5rem;
+        padding: .7rem 3rem;
+        border-radius: 4px;
+        background-color: transparent;
+        border-color: transparent;
+        box-shadow: 1px 1px 8px 0px rgba(49, 46, 46, 0.33);
+        position: relative;
+        right: -8rem;
+        cursor: pointer;
+    }
+
+.login-status {
+    top: 4rem;
+    padding-left: 14rem;
+    position: relative;
+}
+
+.sites {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    padding: 3rem;
+    font-size: 2rem;
+}
+
+a {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.sites a {
+    margin-right:5rem;
+}
+
+.footer {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.54);
+    top:10rem;
+}

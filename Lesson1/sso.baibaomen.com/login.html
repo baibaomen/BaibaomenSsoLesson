@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html ng-app="sso" ng-controller="ctrl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>百宝门SSO方案演示</title>
+    <link href="main.css" rel="stylesheet" />
+    <script src="angular.min.js"></script>
+</head>
+<body>
+    <h1>百宝门SSO方案演示</h1>
+    <div class="login" ng-show="userName">
+        <div class="login-status">
+            <label class="hello">你好，<span ng-bind="userName"></span></label>
+            <a href="javascript:void(0)" ng-click="logout();" class="logout">注销</a>
+        </div>
+    </div>
+    <div class="login" ng-hide="userName">
+        <div class="input">
+            <label>账号：</label>
+            <input type="text" ng-model="account" />
+        </div>
+        <div class="input">
+            <label>密码：</label>
+            <input type="password" ng-model="pwd" />
+        </div>
+        <button ng-click="login()">登录</button>
+    </div>
+    <div class="sites">
+        <a href="http://java-client.net/auth-required.aspx">java-client.net</a>
+        <a href="http://php-client.cn/auth-required.aspx">php-client.cn</a>
+    </div>
+    <div class="footer">@2017 百宝门  baibaomen@gmail.com</div>
+    <iframe id="siteJava"></iframe>
+    <iframe id="sitePhp"></iframe>
+
+    <script>
+
+        //监听logout触发的注销事件。全部子站注销完成后，跳转到login.html。
+        window.addEventListener("message",
+          function (e) {
+              window.scope.$apply(function () {
+                  window.scope.logouts.push(e.data);
+                  if (window.scope.logouts.length > 1) {//注销完成，跳转回https。
+                      window.location = 'https://' + window.location.host + '/login.html';
+                  }
+              });
+          },
+          false);
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function param(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        function redirectToReturnUrl(token) {
+            var returnUrl = param('returnurl');
+            if (returnUrl) {
+                returnUrl = decodeURIComponent(returnUrl);
+                var connectChar = returnUrl.indexOf('?') > -1 ? '&' : '?';
+
+                window.location = returnUrl + connectChar + 'baibaomensso=' + token;
+            }
+        }
+
+        var app = angular.module('sso', []);
+        app.controller('ctrl', function ($scope, $http) {
+
+            window.scope = $scope;
+
+            $scope.logouts = [];
+
+            $scope.userName = window.getCookie('username');
+
+            $scope.login = function () {
+                $http({
+                    method: 'POST',
+                    url: 'login?returnurl=' + param('returnurl'),
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    transformRequest: function (obj) {
+                        var str = [];
+                        for (var p in obj)
+                            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                        return str.join("&");
+                    },
+                    data: { account: $scope.account, pwd: $scope.pwd }
+                }).then(function (token) {
+
+                    redirectToReturnUrl(token.data);
+
+                    setTimeout(function () {
+                        $scope.$apply(function () {
+                            $scope.userName = window.getCookie('username');
+                        });
+                    }, 1);
+
+                }).catch(function (data) {
+                    alert('登录失败。请检查账号密码是否正确。');
+                }).finally(function () {
+                    $scope.account = '';
+                    $scope.pwd = '';
+                });
+            };
+
+            $scope.logout = function () {
+
+                //因为子站有不是https的站点，无法https内嵌http的iframe，必须先自己跳转到非https，注销完成后，再跳转回https。
+                if (window.location.protocol == 'https:') {
+                    var location = window.location.href.replace('https://', 'http://');
+                    if (param('action') !== 'logout') {
+                        var concatChar = location.indexOf('?') > -1 ? '&' : '?';
+                        location = location + concatChar + 'action=logout';
+                    }
+
+                    window.location = location;
+                    return;
+                }
+
+                $http.post('delete-session')
+                    .then(function () {
+                        //访问子站的注销地址。注销地址会通过postMessage回调通知注销完成。
+                        document.getElementById('siteJava').src = 'http://java-client.net/logout.aspx';
+                        document.getElementById('sitePhp').src = 'http://php-client.cn/logout.aspx';
+                    })
+                    .catch(function () {
+                        alert('注销失败。请稍后再试或联系管理员。');
+                    });
+            };
+
+            if (param('action') === 'logout') {
+                $scope.logout();
+            }
+            else if (window.getCookie('baibaomensso')) {
+                redirectToReturnUrl(window.getCookie('baibaomensso'));
+            }
+        });
+
+    </script>
+</body>
+</html>

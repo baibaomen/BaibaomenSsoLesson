@@ -1,0 +1,32 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.header {
+    background-color: rgba(158, 158, 158, 0.29);
+    width: 100%;
+    text-align: right;
+    height: 4rem;
+    padding-top: 2rem;
+    font-size: 1.2rem;
+    padding-right: 3rem;
+}
+
+.content {
+    font-size: 7vw;
+    padding: 10vw 0;
+    text-align: center;
+}
+
+
+.footer {
+    width: 100%;
+    position: relative;
+    top: 10vw;
+    text-align: center;
+    font-size:1.2rem;
+    color: rgba(0, 0, 0, 0.54);
+}

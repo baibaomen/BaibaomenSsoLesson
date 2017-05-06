@@ -1,0 +1,91 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson1, standard SSO", "Lesson1, standard SSO", "{E65670C4-56A6-4145-A57E-D5BF2F0F1F4D}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "https://sso.baibaomen.com", "https://sso.baibaomen.com", "{B209CB87-56E3-4009-B121-A9F365C42AED}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "false"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6"
+		Debug.AspNetCompiler.VirtualPath = "/sso.baibaomen.com"
+		Debug.AspNetCompiler.PhysicalPath = "Lesson1\sso.baibaomen.com\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\sso.baibaomen.com\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/sso.baibaomen.com"
+		Release.AspNetCompiler.PhysicalPath = "Lesson1\sso.baibaomen.com\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\sso.baibaomen.com\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Lesson1\sso.baibaomen.com\"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "http://java-client.net", "http://java-client.net", "{4787B753-9DDB-4DDC-A6F6-E126DD293B9F}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "false"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/java-client.net"
+		Debug.AspNetCompiler.PhysicalPath = "Lesson1\java-client.net\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\java-client.net\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/java-client.net"
+		Release.AspNetCompiler.PhysicalPath = "Lesson1\java-client.net\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\java-client.net\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Lesson1\java-client.net\"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "http://php-client.cn", "http://php-client.cn", "{2EF6A427-89A5-4918-AD28-57A7C5A67B5F}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "false"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/php-client.cn"
+		Debug.AspNetCompiler.PhysicalPath = "Lesson1\php-client.cn\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\php-client.cn\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/php-client.cn"
+		Release.AspNetCompiler.PhysicalPath = "Lesson1\php-client.cn\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\php-client.cn\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Lesson1\php-client.cn\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B209CB87-56E3-4009-B121-A9F365C42AED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B209CB87-56E3-4009-B121-A9F365C42AED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4787B753-9DDB-4DDC-A6F6-E126DD293B9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4787B753-9DDB-4DDC-A6F6-E126DD293B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EF6A427-89A5-4918-AD28-57A7C5A67B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EF6A427-89A5-4918-AD28-57A7C5A67B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B209CB87-56E3-4009-B121-A9F365C42AED} = {E65670C4-56A6-4145-A57E-D5BF2F0F1F4D}
+		{4787B753-9DDB-4DDC-A6F6-E126DD293B9F} = {E65670C4-56A6-4145-A57E-D5BF2F0F1F4D}
+		{2EF6A427-89A5-4918-AD28-57A7C5A67B5F} = {E65670C4-56A6-4145-A57E-D5BF2F0F1F4D}
+	EndGlobalSection
+EndGlobal
