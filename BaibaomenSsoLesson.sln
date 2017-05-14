@@ -70,20 +70,34 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "http://php-client.cn", "htt
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "运行教程", "运行教程", "{4B4C7862-54CC-4719-8FCD-1FACDA4CB9ED}"
 	ProjectSection(SolutionItems) = preProject
+		wildcard.baibaomen.com.pfx = wildcard.baibaomen.com.pfx
 		运行教程.html = 运行教程.html
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneKeyRunner", "OneKeyRunner\OneKeyRunner.csproj", "{A1AD7461-AEFF-4BC3-B947-7B24180BDA41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B209CB87-56E3-4009-B121-A9F365C42AED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B209CB87-56E3-4009-B121-A9F365C42AED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B209CB87-56E3-4009-B121-A9F365C42AED}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{B209CB87-56E3-4009-B121-A9F365C42AED}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{4787B753-9DDB-4DDC-A6F6-E126DD293B9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4787B753-9DDB-4DDC-A6F6-E126DD293B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4787B753-9DDB-4DDC-A6F6-E126DD293B9F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{4787B753-9DDB-4DDC-A6F6-E126DD293B9F}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{2EF6A427-89A5-4918-AD28-57A7C5A67B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2EF6A427-89A5-4918-AD28-57A7C5A67B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EF6A427-89A5-4918-AD28-57A7C5A67B5F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EF6A427-89A5-4918-AD28-57A7C5A67B5F}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{A1AD7461-AEFF-4BC3-B947-7B24180BDA41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1AD7461-AEFF-4BC3-B947-7B24180BDA41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1AD7461-AEFF-4BC3-B947-7B24180BDA41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1AD7461-AEFF-4BC3-B947-7B24180BDA41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,5 +106,6 @@ Global
 		{B209CB87-56E3-4009-B121-A9F365C42AED} = {E65670C4-56A6-4145-A57E-D5BF2F0F1F4D}
 		{4787B753-9DDB-4DDC-A6F6-E126DD293B9F} = {E65670C4-56A6-4145-A57E-D5BF2F0F1F4D}
 		{2EF6A427-89A5-4918-AD28-57A7C5A67B5F} = {E65670C4-56A6-4145-A57E-D5BF2F0F1F4D}
+		{A1AD7461-AEFF-4BC3-B947-7B24180BDA41} = {E65670C4-56A6-4145-A57E-D5BF2F0F1F4D}
 	EndGlobalSection
 EndGlobal

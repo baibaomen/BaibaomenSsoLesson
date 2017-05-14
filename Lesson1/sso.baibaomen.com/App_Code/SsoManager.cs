@@ -100,7 +100,7 @@ namespace Baibaomen.SsoServer
         }
 
         /// <summary>
-        /// 相应子站点通过浏览器跳转过来的SSO请求。
+        /// 子站点通过浏览器跳转过来的SSO请求。
         /// </summary>
         /// <param name="context"></param>
         public void HandleSso(HttpContext context)
@@ -112,14 +112,14 @@ namespace Baibaomen.SsoServer
                 token = context.Request.Cookies["baibaomensso"].Value;
             }
 
-            if (!string.IsNullOrEmpty(token) && Util.FindAccountForToken(token) != null)//28 如果已经登录了，跳转到returnurl，并带上token。
+            if (!string.IsNullOrEmpty(token) && Util.FindAccountForToken(token) != null)//28 有token，且找到匹配用户。
             {
                 //29 跳转到returnurl，并带上token参数。
                 context.Response.Redirect(MakeReturnUrl(context.Request["returnurl"], token), true);
             }
             else//5 浏览器没传过来baibaomensso这个cookie，判定为未登录
             {
-                //6 跳转到登录页面
+                //6 跳转到登录页面，带上登录成功后的返回地址
                 context.Response.Redirect("login.html?returnurl=" + HttpUtility.UrlEncode(context.Request.QueryString["returnurl"]), true);
             }
         }
@@ -134,7 +134,7 @@ namespace Baibaomen.SsoServer
 
             if (account != null)
             {
-                //8 登录成功，创建token xxx
+                //8 登录成功，创建用户账号对应的token xxx
                 var token = Util.GetTokenForAccount(account);
 
                 //9 把token写到本站cookie；
